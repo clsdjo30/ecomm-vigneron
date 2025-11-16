@@ -2,12 +2,13 @@
 
 namespace App\Entity;
 
+use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: ProductRepository::class)]
 #[ORM\Table(name: 'product')]
 #[ORM\HasLifecycleCallbacks]
 class Product
@@ -38,6 +39,9 @@ class Product
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $imageUrl = null;
+
+    #[ORM\Column(type: 'boolean', options: ['default' => false])]
+    private bool $isFeatured = false;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $createdAt = null;
@@ -159,6 +163,18 @@ class Product
     public function setImageUrl(?string $imageUrl): self
     {
         $this->imageUrl = $imageUrl;
+
+        return $this;
+    }
+
+    public function isFeatured(): bool
+    {
+        return $this->isFeatured;
+    }
+
+    public function setIsFeatured(bool $isFeatured): self
+    {
+        $this->isFeatured = $isFeatured;
 
         return $this;
     }

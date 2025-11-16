@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Merci pour votre commande - Domaine de la Gardiole{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="text-center mb-5">
+                <div class="mb-4">
+                    <i class="bi bi-check-circle-fill text-success" style="font-size: 5rem;"></i>
+                </div>
+                <h1 class="display-4 mb-3">Merci pour votre commande !</h1>
+                <p class="lead text-muted">Votre commande a été validée avec succès</p>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <h5 class="card-title mb-4"><i class="bi bi-receipt"></i> Référence de commande</h5>
+                    <div class="alert alert-success mb-0">
+                        <h3 class="text-center mb-0">{{ reference }}</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <h5 class="card-title mb-4"><i class="bi bi-envelope-check"></i> Confirmation par email</h5>
+                    <p class="mb-0">Un email de confirmation vient de vous être envoyé avec le récapitulatif de votre commande et les modalités de retrait.</p>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4 border-wine">
+                <div class="card-header bg-wine text-white">
+                    <h5 class="mb-0"><i class="bi bi-info-circle"></i> Retrait de votre commande</h5>
+                </div>
+                <div class="card-body p-4">
+                    <h6 class="mb-3">Modalités de retrait :</h6>
+                    <ul class="list-unstyled mb-3">
+                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> Votre commande sera prête sous <strong>48 heures</strong></li>
+                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> Retrait au <strong>Domaine de la Gardiole</strong></li>
+                        <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> 123 Chemin des Vignes, 34000 Montpellier</li>
+                        <li class="mb-0"><i class="bi bi-check-circle text-success me-2"></i> Horaires : Du lundi au vendredi de 9h à 18h</li>
+                    </ul>
+                    <hr>
+                    <p class="text-muted mb-0"><small><i class="bi bi-exclamation-circle me-1"></i> Pensez à vous munir de votre référence de commande lors du retrait</small></p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="{{ path('app_home') }}" class="btn btn-wine btn-lg me-2">
+                    <i class="bi bi-house-door"></i> Retour à l'accueil
+                </a>
+                <a href="{{ path('app_category_show', {slug: 'vins-rouges'}) }}" class="btn btn-outline-wine btn-lg">
+                    <i class="bi bi-arrow-repeat"></i> Continuer mes achats
+                </a>
+            </div>
+
+            <div class="alert alert-info mt-4">
+                <p class="mb-0"><strong>Une question ?</strong> N'hésitez pas à <a href="{{ path('app_contact') }}" class="alert-link">nous contacter</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -6,6 +6,7 @@ use App\Entity\Product;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
@@ -62,6 +63,10 @@ class ProductCrudController extends AbstractCrudController
         yield TextField::new('imageUrl', 'URL de l\'image')
             ->setHelp('Chemin vers la photo du produit (ex: /images/products/vin-rouge.jpg)')
             ->hideOnIndex();
+
+        yield BooleanField::new('isFeatured', 'Produit phare')
+            ->setHelp('Afficher ce produit sur la page d\'accueil')
+            ->renderAsSwitch(true);
 
         // Afficher l'image sous forme de miniature dans la liste
         if ($pageName === Crud::PAGE_INDEX) {

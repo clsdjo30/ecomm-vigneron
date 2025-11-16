@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous Contacter - Domaine de la Gardiole{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    {# En-tête #}
+    <div class="text-center mb-5">
+        <h1 class="display-4 mb-3">Nous Contacter</h1>
+        <p class="lead text-muted">Pour toute question ou demande de renseignement, n'hésitez pas à nous écrire</p>
+    </div>
+
+    <div class="row">
+        {# Formulaire de contact #}
+        <div class="col-md-7 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h3 class="card-title mb-4">Envoyez-nous un message</h3>
+                    {{ form_start(contactForm) }}
+                        <div class="mb-3">
+                            {{ form_label(contactForm.name) }}
+                            {{ form_widget(contactForm.name) }}
+                            {{ form_errors(contactForm.name) }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(contactForm.email) }}
+                            {{ form_widget(contactForm.email) }}
+                            {{ form_errors(contactForm.email) }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(contactForm.subject) }}
+                            {{ form_widget(contactForm.subject) }}
+                            {{ form_errors(contactForm.subject) }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(contactForm.message) }}
+                            {{ form_widget(contactForm.message) }}
+                            {{ form_errors(contactForm.message) }}
+                        </div>
+
+                        {{ form_widget(contactForm.submit) }}
+                    {{ form_end(contactForm) }}
+                </div>
+            </div>
+        </div>
+
+        {# Informations de contact #}
+        <div class="col-md-5">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h4 class="card-title mb-4"><i class="bi bi-geo-alt text-wine"></i> Adresse</h4>
+                    <p class="mb-0">
+                        <strong>Domaine de la Gardiole</strong><br>
+                        123 Chemin des Vignes<br>
+                        34000 Montpellier<br>
+                        France
+                    </p>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h4 class="card-title mb-4"><i class="bi bi-telephone text-wine"></i> Téléphone</h4>
+                    <p class="mb-0">
+                        <a href="tel:+33467001122" class="text-decoration-none">+33 4 67 00 11 22</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h4 class="card-title mb-4"><i class="bi bi-envelope text-wine"></i> Email</h4>
+                    <p class="mb-0">
+                        <a href="mailto:contact@gardiole.fr" class="text-decoration-none">contact@gardiole.fr</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title mb-4"><i class="bi bi-clock text-wine"></i> Horaires</h4>
+                    <p class="mb-1"><strong>Lundi - Vendredi</strong></p>
+                    <p class="mb-3">9h00 - 12h00 / 14h00 - 18h00</p>
+                    <p class="mb-1"><strong>Samedi</strong></p>
+                    <p class="mb-3">9h00 - 12h00</p>
+                    <p class="mb-0 text-muted"><em>Dimanche fermé</em></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

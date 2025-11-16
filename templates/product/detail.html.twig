@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }} - Domaine de la Gardiole{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    {# Fil d'Ariane #}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('app_category_show', {slug: product.category.slug}) }}">{{ product.category.name }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
+        </ol>
+    </nav>
+
+    {# Détail du produit #}
+    <div class="row">
+        {# Image #}
+        <div class="col-md-6 mb-4">
+            {% if product.imageUrl %}
+                <img src="{{ product.imageUrl }}" class="img-fluid rounded shadow" alt="{{ product.name }}">
+            {% else %}
+                <img src="https://via.placeholder.com/600x600?text={{ product.name|url_encode }}" class="img-fluid rounded shadow" alt="{{ product.name }}">
+            {% endif %}
+        </div>
+
+        {# Informations et formulaire #}
+        <div class="col-md-6">
+            <h1 class="mb-3">{{ product.name }}</h1>
+
+            <div class="mb-3">
+                <span class="badge bg-secondary">{{ product.category.name }}</span>
+            </div>
+
+            <h2 class="text-wine mb-4">{{ (product.price / 100)|format_currency('EUR') }}</h2>
+
+            <div class="mb-4">
+                <h5><i class="bi bi-grape"></i> Cépage</h5>
+                <p class="text-muted">{{ product.grapeVariety }}</p>
+            </div>
+
+            <div class="mb-4">
+                <h5><i class="bi bi-file-text"></i> Description</h5>
+                <p>{{ product.description|nl2br }}</p>
+            </div>
+
+            {# Formulaire d'ajout au panier #}
+            <div class="card border-wine">
+                <div class="card-body">
+                    <form method="post" action="{{ path('app_cart_add') }}">
+                        <input type="hidden" name="productId" value="{{ product.id }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token('add-to-cart') }}">
+
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label fw-bold">Quantité</label>
+                            <input type="number" class="form-control form-control-lg" id="quantity" name="quantity" value="1" min="1" max="99">
+                        </div>
+
+                        <button type="submit" class="btn btn-wine btn-lg w-100">
+                            <i class="bi bi-cart-plus"></i> Ajouter au panier
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Retour à la catégorie #}
+    <div class="mt-5">
+        <a href="{{ path('app_category_show', {slug: product.category.slug}) }}" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Retour aux {{ product.category.name }}
+        </a>
+    </div>
+</div>
+{% endblock %}

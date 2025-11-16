@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le Domaine - Domaine de la Gardiole{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    {# En-tête #}
+    <div class="text-center mb-5">
+        <h1 class="display-4 mb-3">Notre Histoire, Notre Terroir</h1>
+        <p class="lead text-muted">Quatre générations de vignerons passionnés</p>
+    </div>
+
+    {# Section Histoire #}
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <img src="https://images.unsplash.com/photo-1474722883778-4b2c8e1b4eb4?w=600" alt="Vignoble ancien" class="img-fluid rounded shadow mb-4">
+        </div>
+        <div class="col-md-6">
+            <h2 class="mb-3">Une histoire familiale</h2>
+            <p>Fondé en 1920 par Émile Gardiole, notre domaine est le fruit d'une passion transmise de génération en génération. Émile, vigneron visionnaire, a su reconnaître le potentiel exceptionnel de ces terres nichées au cœur de notre belle région.</p>
+            <p>Aujourd'hui, c'est la quatrième génération qui perpétue cet héritage avec la même détermination et le même amour du travail bien fait. Chaque membre de la famille apporte sa pierre à l'édifice, mêlant respect des traditions ancestrales et techniques modernes de vinification.</p>
+        </div>
+    </div>
+
+    {# Section Terroir #}
+    <div class="row mb-5">
+        <div class="col-md-6 order-md-2">
+            <img src="https://images.unsplash.com/photo-1506377585622-bedcbb027afc?w=600" alt="Terroir" class="img-fluid rounded shadow mb-4">
+        </div>
+        <div class="col-md-6 order-md-1">
+            <h2 class="mb-3">Un terroir d'exception</h2>
+            <p>Notre vignoble s'étend sur 25 hectares de terres argilo-calcaires, bénéficiant d'une exposition sud-sud-est idéale. Ce terroir unique, combiné à un microclimat favorable, confère à nos vins leur caractère si particulier.</p>
+            <p>Les sols, riches en minéraux, permettent à nos cépages de développer toute leur complexité aromatique. Le climat méditerranéen, avec ses étés chauds et ses nuits fraîches, favorise une maturation optimale des raisins.</p>
+        </div>
+    </div>
+
+    {# Section Savoir-faire #}
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <h2 class="text-center mb-4">Notre savoir-faire</h2>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-leaf text-wine fs-1 mb-3"></i>
+                    <h5 class="card-title">Culture raisonnée</h5>
+                    <p class="card-text">Nous pratiquons une viticulture respectueuse de l'environnement, limitant les intrants et privilégiant les méthodes naturelles.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-hand-thumbs-up text-wine fs-1 mb-3"></i>
+                    <h5 class="card-title">Vendanges manuelles</h5>
+                    <p class="card-text">Chaque grappe est récoltée à la main, au moment optimal de maturité, garantissant la qualité de notre récolte.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-droplet text-wine fs-1 mb-3"></i>
+                    <h5 class="card-title">Vinification traditionnelle</h5>
+                    <p class="card-text">Nos vins sont élaborés selon des méthodes traditionnelles, alliées aux technologies modernes pour révéler le meilleur de chaque cépage.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Section Engagement #}
+    <div class="bg-light p-5 rounded mb-5">
+        <h2 class="text-center mb-4">Notre engagement</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="lead">Au Domaine de la Gardiole, nous sommes convaincus que la qualité d'un vin commence dans les vignes. C'est pourquoi nous accordons une attention particulière à chaque étape de l'élaboration de nos cuvées.</p>
+            </div>
+            <div class="col-md-6">
+                <p class="lead">Notre objectif : produire des vins authentiques, reflets fidèles de notre terroir et de notre passion. Des vins qui racontent une histoire, celle de notre famille et de notre terre.</p>
+            </div>
+        </div>
+    </div>
+
+    {# Call-to-Action #}
+    <div class="text-center">
+        <h3 class="mb-3">Envie de découvrir nos vins ?</h3>
+        <a href="{{ path('app_category_show', {slug: 'vins-rouges'}) }}" class="btn btn-wine btn-lg me-2">Découvrir notre gamme</a>
+        <a href="{{ path('app_contact') }}" class="btn btn-outline-wine btn-lg">Nous contacter</a>
+    </div>
+</div>
+{% endblock %}
