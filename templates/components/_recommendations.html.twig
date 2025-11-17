@@ -22,7 +22,7 @@
                         <div class="product-card">
                             {% if product.imageUrl %}
                                 <div class="product-image">
-                                    <img src="{{ product.imageUrl }}" alt="{{ product.name }}" class="img-fluid">
+                                    <img src="/uploads/products/{{ product.imageUrl }}" alt="{{ product.name }}" class="img-fluid">
                                     {% if product.isFeatured %}
                                         <span class="product-badge badge-featured">
                                             <i class="fas fa-star"></i> Coup de Cœur
