@@ -511,6 +511,16 @@ img {
 }
 
 .testimonial-content {
+    padding: var(--spacing-sm) 0;
+}
+
+.quote-icon {
+    font-size: 2rem;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.testimonial-text {
     font-size: 1.1rem;
     font-style: italic;
     line-height: 1.8;
@@ -523,7 +533,6 @@ img {
 }
 
 .testimonial-rating .fas.fa-star {
-    color: var(--color-gold);
     font-size: 1.2rem;
     margin: 0 0.2rem;
 }
@@ -533,25 +542,45 @@ img {
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    margin-top: var(--spacing-sm);
+    margin-top: var(--spacing-md);
 }
 
-.testimonial-image {
-    width: 60px;
-    height: 60px;
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     border: 3px solid var(--color-gold);
     object-fit: cover;
+    flex-shrink: 0;
 }
 
-.testimonial-info h5 {
-    margin: 0;
+.testimonial-avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 3px solid var(--color-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--color-gold);
+    flex-shrink: 0;
+}
+
+.testimonial-info {
+    text-align: left;
+}
+
+.testimonial-name {
+    font-family: var(--font-heading);
     font-size: 1.1rem;
+    font-weight: 600;
     color: white;
+    margin-bottom: 0.3rem;
 }
 
-.testimonial-info p {
-    margin: 0;
+.testimonial-position {
     font-size: 0.9rem;
     color: var(--color-gold);
 }
@@ -566,6 +595,10 @@ img {
     background-color: var(--color-gold);
     border-radius: 50%;
     padding: 20px;
+}
+
+.carousel-indicators button {
+    background-color: var(--color-gold);
 }
 
 /* === TEAM SECTION === */
