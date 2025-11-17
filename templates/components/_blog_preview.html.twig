@@ -20,7 +20,7 @@
                         <article class="blog-card">
                             {% if post.featuredImage %}
                                 <div class="blog-image">
-                                    <img src="{{ asset('uploads/posts/' ~ post.featuredImage) }}"
+                                    <img src="/uploads/posts/{{ post.featuredImage }}"
                                          alt="{{ post.title }}"
                                          class="img-fluid">
                                     <div class="blog-category-badge">
