@@ -60,20 +60,23 @@ class ProductCrudController extends AbstractCrudController
             ->setStoredAsCents(true)
             ->setRequired(true);
 
-        yield TextField::new('imageUrl', 'URL de l\'image')
-            ->setHelp('Chemin vers la photo du produit (ex: /images/products/vin-rouge.jpg)')
-            ->hideOnIndex();
+        $imageField = ImageField::new('imageUrl', 'Photo du produit')
+            ->setBasePath('/uploads/products')
+            ->setUploadDir('public/uploads/products')
+            ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')
+            ->setRequired(false);
+
+        if ($pageName === Crud::PAGE_INDEX) {
+            $imageField->setHelp('');
+        } else {
+            $imageField->setHelp('Téléchargez une photo du produit (JPG, PNG)');
+        }
+
+        yield $imageField;
 
         yield BooleanField::new('isFeatured', 'Produit phare')
             ->setHelp('Afficher ce produit sur la page d\'accueil')
             ->renderAsSwitch(true);
-
-        // Afficher l'image sous forme de miniature dans la liste
-        if ($pageName === Crud::PAGE_INDEX) {
-            yield ImageField::new('imageUrl', 'Photo')
-                ->setBasePath('/')
-                ->setUploadDir('public/');
-        }
 
         yield DateTimeField::new('updatedAt', 'Dernière MàJ')
             ->onlyOnIndex();
