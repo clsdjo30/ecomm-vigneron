@@ -28,13 +28,13 @@
                         <i class="fas fa-wine-glass-alt"></i> Nos Vins
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownVins">
-                        <li><a class="dropdown-item" href="{{ path('app_products', {category: 'rouges'}) }}">
+                        <li><a class="dropdown-item" href="{{ path('app_category_show', {slug: 'rouges'}) }}">
                             <i class="fas fa-circle text-danger"></i> Les Rouges
                         </a></li>
-                        <li><a class="dropdown-item" href="{{ path('app_products', {category: 'blancs'}) }}">
+                        <li><a class="dropdown-item" href="{{ path('app_category_show', {slug: 'blancs'}) }}">
                             <i class="fas fa-circle text-warning"></i> Les Blancs
                         </a></li>
-                        <li><a class="dropdown-item" href="{{ path('app_products', {category: 'roses'}) }}">
+                        <li><a class="dropdown-item" href="{{ path('app_category_show', {slug: 'roses'}) }}">
                             <i class="fas fa-circle" style="color: #FFB6C1;"></i> Les Rosés
                         </a></li>
                         <li><hr class="dropdown-divider"></li>
@@ -45,7 +45,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ app.request.attributes.get('_route') starts with 'blog_' ? 'active' : '' }}" href="{{ path('blog_index') }}">
+                    <a class="nav-link {{ app.request.attributes.get('_route') starts with 'app_blog' ? 'active' : '' }}" href="{{ path('app_blog_index') }}">
                         <i class="fas fa-newspaper"></i> Actualités
                     </a>
                 </li>

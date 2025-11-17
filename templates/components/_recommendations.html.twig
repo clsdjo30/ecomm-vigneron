@@ -52,7 +52,7 @@
                                         {{ product.price|format_currency('EUR', locale='fr') }}
                                     </div>
 
-                                    <a href="{{ path('app_product_show', {slug: product.slug}) }}" class="btn btn-wine-outline btn-sm">
+                                    <a href="{{ path('app_product_detail', {slug: product.slug}) }}" class="btn btn-wine-outline btn-sm">
                                         <i class="fas fa-eye me-1"></i>
                                         Découvrir
                                     </a>

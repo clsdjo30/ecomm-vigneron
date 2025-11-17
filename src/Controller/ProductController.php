@@ -10,6 +10,18 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ProductController extends AbstractController
 {
+    #[Route('/nos-vins', name: 'app_products')]
+    public function index(ProductRepository $productRepository, CategoryRepository $categoryRepository): Response
+    {
+        $products = $productRepository->findAll();
+        $categories = $categoryRepository->findAll();
+
+        return $this->render('product/index.html.twig', [
+            'products' => $products,
+            'categories' => $categories,
+        ]);
+    }
+
     #[Route('/categorie/{slug}', name: 'app_category_show')]
     public function showCategory(string $slug, CategoryRepository $categoryRepository): Response
     {

@@ -50,7 +50,7 @@
                                 </div>
 
                                 <h3 class="blog-title">
-                                    <a href="{{ path('blog_show', {slug: post.slug}) }}">
+                                    <a href="{{ path('app_blog_show', {slug: post.slug}) }}">
                                         {{ post.title }}
                                     </a>
                                 </h3>
@@ -63,7 +63,7 @@
                                     </p>
                                 {% endif %}
 
-                                <a href="{{ path('blog_show', {slug: post.slug}) }}" class="blog-read-more">
+                                <a href="{{ path('app_blog_show', {slug: post.slug}) }}" class="blog-read-more">
                                     Lire la suite
                                     <i class="fas fa-arrow-right ms-2"></i>
                                 </a>
@@ -74,7 +74,7 @@
             </div>
 
             <div class="text-center mt-5" data-aos="fade-up">
-                <a href="{{ path('blog_index') }}" class="btn btn-wine-primary btn-lg">
+                <a href="{{ path('app_blog_index') }}" class="btn btn-wine-primary btn-lg">
                     <i class="fas fa-newspaper me-2"></i>
                     Voir toutes les actualités
                 </a>

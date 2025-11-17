@@ -39,7 +39,7 @@
                             <li><a href="{{ path('app_home') }}"><i class="fas fa-chevron-right me-2"></i>Accueil</a></li>
                             <li><a href="{{ path('app_domain') }}"><i class="fas fa-chevron-right me-2"></i>Notre Histoire</a></li>
                             <li><a href="{{ path('app_products') }}"><i class="fas fa-chevron-right me-2"></i>Nos Vins</a></li>
-                            <li><a href="{{ path('blog_index') }}"><i class="fas fa-chevron-right me-2"></i>Actualités</a></li>
+                            <li><a href="{{ path('app_blog_index') }}"><i class="fas fa-chevron-right me-2"></i>Actualités</a></li>
                         </ul>
                     </div>
                 </div>
@@ -49,9 +49,9 @@
                     <div class="footer-widget">
                         <h3 class="footer-title">Nos Vins</h3>
                         <ul class="footer-links">
-                            <li><a href="{{ path('app_products', {category: 'rouges'}) }}"><i class="fas fa-chevron-right me-2"></i>Vins Rouges</a></li>
-                            <li><a href="{{ path('app_products', {category: 'blancs'}) }}"><i class="fas fa-chevron-right me-2"></i>Vins Blancs</a></li>
-                            <li><a href="{{ path('app_products', {category: 'roses'}) }}"><i class="fas fa-chevron-right me-2"></i>Vins Rosés</a></li>
+                            <li><a href="{{ path('app_category_show', {slug: 'rouges'}) }}"><i class="fas fa-chevron-right me-2"></i>Vins Rouges</a></li>
+                            <li><a href="{{ path('app_category_show', {slug: 'blancs'}) }}"><i class="fas fa-chevron-right me-2"></i>Vins Blancs</a></li>
+                            <li><a href="{{ path('app_category_show', {slug: 'roses'}) }}"><i class="fas fa-chevron-right me-2"></i>Vins Rosés</a></li>
                             <li><a href="{{ path('app_products') }}"><i class="fas fa-chevron-right me-2"></i>Catalogue Complet</a></li>
                         </ul>
                     </div>
