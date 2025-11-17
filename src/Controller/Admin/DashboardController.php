@@ -39,7 +39,7 @@ class DashboardController extends AbstractDashboardController
     {
         return Dashboard::new()
             ->setTitle('E-Commerce Vigneron - Administration')
-            ->setFaviconPath('favicon.ico')
+            ->setFaviconPath('uploads/gardiole.ico')
         ;
     }
 

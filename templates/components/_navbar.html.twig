@@ -53,6 +53,11 @@
                 <li class="nav-item">
                     <a class="nav-link {{ app.request.attributes.get('_route') == 'app_cart_index' ? 'active' : '' }}" href="{{ path('app_cart_index') }}">
                         <i class="fas fa-shopping-cart"></i> Panier
+                        {% set cart = app.session.get('cart', []) %}
+                        {% set cartCount = cart|length > 0 ? cart|reduce((carry, quantity) => carry + quantity, 0) : 0 %}
+                        {% if cartCount > 0 %}
+                            <span class="badge bg-danger rounded-pill ms-1">{{ cartCount }}</span>
+                        {% endif %}
                     </a>
                 </li>
 
