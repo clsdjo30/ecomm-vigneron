@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\ContactMessage;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -23,6 +24,10 @@ use EasyCorp\Bundle\EasyAdminBundle\Filter\DateTimeFilter;
 
 class ContactMessageCrudController extends AbstractCrudController
 {
+    public function __construct(
+        private EntityManagerInterface $entityManager
+    ) {
+    }
     public static function getEntityFqcn(): string
     {
         return ContactMessage::class;
@@ -118,7 +123,7 @@ class ContactMessageCrudController extends AbstractCrudController
         }
 
         $message->setIsRead(true);
-        $this->container->get('doctrine')->getManager()->flush();
+        $this->entityManager->flush();
 
         $this->addFlash('success', 'Le message a été marqué comme lu.');
 

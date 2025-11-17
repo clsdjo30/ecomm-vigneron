@@ -11,6 +11,7 @@ use App\Entity\Post;
 use App\Entity\Product;
 use App\Entity\Tag;
 use App\Entity\User;
+use App\Repository\ContactMessageRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -21,7 +22,8 @@ use Symfony\Component\Routing\Attribute\Route;
 class DashboardController extends AbstractDashboardController
 {
     public function __construct(
-        private AdminUrlGenerator $adminUrlGenerator
+        private AdminUrlGenerator $adminUrlGenerator,
+        private ContactMessageRepository $contactMessageRepository
     ) {
     }
 
@@ -58,7 +60,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Communication');
         yield MenuItem::linkToCrud('Messages de Contact', 'fa fa-envelope', ContactMessage::class)
             ->setBadge(
-                $this->container->get('doctrine')->getRepository(ContactMessage::class)->count(['isRead' => false]),
+                $this->contactMessageRepository->count(['isRead' => false]),
                 'danger'
             );
         yield MenuItem::linkToCrud('Abonnés Newsletter', 'fa fa-newspaper', NewsletterSubscriber::class);

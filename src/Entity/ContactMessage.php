@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
+use App\Repository\ContactMessageRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: ContactMessageRepository::class)]
 #[ORM\Table(name: 'contact_message')]
 #[ORM\HasLifecycleCallbacks]
 class ContactMessage

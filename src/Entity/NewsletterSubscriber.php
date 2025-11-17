@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
+use App\Repository\NewsletterSubscriberRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: NewsletterSubscriberRepository::class)]
 #[ORM\Table(name: 'newsletter_subscriber')]
 #[ORM\HasLifecycleCallbacks]
 #[UniqueEntity(fields: ['email'], message: 'Cet email est déjà inscrit à la newsletter.')]
