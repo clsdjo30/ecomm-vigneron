@@ -1,172 +1,95 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Domaine de la Gardiole{% endblock %}</title>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			{% block title %}Domaine de la Gardiole
+			{% endblock %}
+		</title>
 
-    {# Bootstrap 5 CSS #}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+		{# Bootstrap 5 CSS #}
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
-    {% block stylesheets %}
-    <style>
-        :root {
-            --wine-red: #722f37;
-            --wine-dark: #4a1f25;
-            --cream: #f5f5dc;
-            --dark-green: #2d5016;
-        }
+		{% block stylesheets %}
+			<style>:root
+			{
+				--wine-red: #722f37;
+				--wine-dark: #4a1f25;
+				--cream: #f5f5dc;
+				--dark-green: #2d5016;
+			}
 
-        .navbar-brand {
-            font-weight: bold;
-            color: var(--wine-red) !important;
-            font-size: 1.5rem;
-        }
+			.navbar-brand {
+				font-weight: bold;
+				color: var(--wine-red) !important;
+				font-size: 1.5rem;
+			}
 
-        .nav-link {
-            color: #333 !important;
-            font-weight: 500;
-        }
+			.nav-link {
+				color: #333 !important;
+				font-weight: 500;
+			}
 
-        .nav-link:hover {
-            color: var(--wine-red) !important;
-        }
+			.nav-link:hover {
+				color: var(--wine-red) !important;
+			}
 
-        .btn-wine {
-            background-color: var(--wine-red);
-            color: white;
-        }
+			.btn-wine {
+				background-color: var(--wine-red);
+				color: white;
+			}
 
-        .btn-wine:hover {
-            background-color: var(--wine-dark);
-            color: white;
-        }
+			.btn-wine:hover {
+				background-color: var(--wine-dark);
+				color: white;
+			}
 
-        .card-img-top {
-            height: 250px;
-            object-fit: cover;
-        }
+			.card-img-top {
+				height: 250px;
+				object-fit: cover;
+			}
 
-        footer {
-            background-color: #f8f9fa;
-            margin-top: 4rem;
-        }
+			footer {
+				background-color: #f8f9fa;
+				margin-top: 4rem;
+			}
 
-        .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1200');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-    </style>
-    {% endblock %}
+			.hero-section {
+				background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1200');
+				background-size: cover;
+				background-position: center;
+				color: white;
+				padding: 100px 0;
+				text-align: center;
+			}
+		</style>
+	{% endblock %}
 </head>
 <body>
-    {# Navbar #}
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="{{ path('app_home') }}">
-                <i class="bi bi-cup-straw"></i> Domaine de la Gardiole
-            </a>
+	{# Navbar #}
+	{% include 'components/_navbar.html.twig' %}
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+	{# Flash Messages #}
+	{% for label, messages in app.flashes %}
+		<div class="container mt-3">
+			{% for message in messages %}
+				<div class="alert alert-{{ label }} alert-dismissible fade show" role="alert">
+					{{ message }}
+					<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+				</div>
+			{% endfor %}
+		</div>
+	{% endfor %}
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_home') }}">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_domain') }}">Le Domaine</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_category_show', {slug: 'vins-rouges'}) }}">Vins Rouges</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_category_show', {slug: 'vins-blancs'}) }}">Vins Blancs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_category_show', {slug: 'vins-roses'}) }}">Vins Rosés</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_blog_index') }}">Actualités</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_contact') }}">Nous Contacter</a>
-                    </li>
-                </ul>
+	{# Main Content #}
+	{% block body %}{% endblock %}
 
-                {# Panier #}
-                <a href="{{ path('app_cart_index') }}" class="btn btn-outline-wine position-relative">
-                    <i class="bi bi-cart3"></i> Panier
-                    {% set cartCount = app.session.get('cart', {})|length %}
-                    {% if cartCount > 0 %}
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            {{ cartCount }}
-                        </span>
-                    {% endif %}
-                </a>
-            </div>
-        </div>
-    </nav>
+	{# Footer #}
+	{% include 'components/_footer.html.twig' %}
 
-    {# Flash Messages #}
-    {% for label, messages in app.flashes %}
-        <div class="container mt-3">
-            {% for message in messages %}
-                <div class="alert alert-{{ label }} alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                </div>
-            {% endfor %}
-        </div>
-    {% endfor %}
-
-    {# Main Content #}
-    {% block body %}{% endblock %}
-
-    {# Footer #}
-    <footer class="border-top mt-5">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <h5>Domaine de la Gardiole</h5>
-                    <p class="text-muted">Des vins d'exception depuis 1920</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <h5>Navigation</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="{{ path('app_home') }}" class="text-muted text-decoration-none">Accueil</a></li>
-                        <li><a href="{{ path('app_domain') }}" class="text-muted text-decoration-none">Le Domaine</a></li>
-                        <li><a href="{{ path('app_blog_index') }}" class="text-muted text-decoration-none">Actualités</a></li>
-                        <li><a href="{{ path('app_contact') }}" class="text-muted text-decoration-none">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <h5>Informations</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-muted text-decoration-none">Mentions Légales</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none">CGV</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p class="text-muted mb-1">© 2025 Domaine de la Gardiole. Tous droits réservés.</p>
-                    <p class="text-danger small"><strong>L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</strong></p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    {# Bootstrap 5 JS #}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    {% block javascripts %}{% endblock %}
-</body>
-</html>
+	{# Bootstrap 5 JS #}
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	{% block javascripts %}{% endblock %}
+</body></html>
