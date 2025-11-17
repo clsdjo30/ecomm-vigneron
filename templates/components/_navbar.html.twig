@@ -12,12 +12,6 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link {{ app.request.attributes.get('_route') == 'app_home' ? 'active' : '' }}" href="{{ path('app_home') }}">
-                        <i class="fas fa-home"></i> Accueil
-                    </a>
-                </li>
-
-                <li class="nav-item">
                     <a class="nav-link {{ app.request.attributes.get('_route') == 'app_domain' ? 'active' : '' }}" href="{{ path('app_domain') }}">
                         <i class="fas fa-landmark"></i> Le Domaine
                     </a>
@@ -53,6 +47,12 @@
                 <li class="nav-item">
                     <a class="nav-link {{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}" href="{{ path('app_contact') }}">
                         <i class="fas fa-envelope"></i> Contact
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ app.request.attributes.get('_route') == 'app_cart_index' ? 'active' : '' }}" href="{{ path('app_cart_index') }}">
+                        <i class="fas fa-shopping-cart"></i> Panier
                     </a>
                 </li>
 
