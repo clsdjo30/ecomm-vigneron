@@ -20,9 +20,9 @@
                 {% for product in featuredProducts %}
                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
                         <div class="product-card">
-                            {% if product.image %}
+                            {% if product.imageUrl %}
                                 <div class="product-image">
-                                    <img src="{{ asset('uploads/products/' ~ product.image) }}" alt="{{ product.name }}" class="img-fluid">
+                                    <img src="{{ product.imageUrl }}" alt="{{ product.name }}" class="img-fluid">
                                     {% if product.isFeatured %}
                                         <span class="product-badge badge-featured">
                                             <i class="fas fa-star"></i> Coup de Cœur
@@ -49,7 +49,7 @@
 
                                 <div class="product-footer">
                                     <div class="product-price">
-                                        {{ product.price|format_currency('EUR', locale='fr') }}
+                                        {{ (product.price / 100)|format_currency('EUR', locale='fr') }}
                                     </div>
 
                                     <a href="{{ path('app_product_detail', {slug: product.slug}) }}" class="btn btn-wine-outline btn-sm">
