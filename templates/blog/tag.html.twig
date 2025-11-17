@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tag: {{ tag.name }} - Actualités - Domaine de la Gardiole{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    {# Breadcrumb #}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('app_blog_index') }}">Actualités</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Tag: {{ tag.name }}</li>
+        </ol>
+    </nav>
+
+    {# Header #}
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-4 mb-3">
+                <i class="bi bi-tag"></i> #{{ tag.name }}
+            </h1>
+            <p class="lead text-muted">{{ posts|length }} article{{ posts|length > 1 ? 's' : '' }} avec ce tag</p>
+        </div>
+    </div>
+
+    <div class="row">
+        {# Main content #}
+        <div class="col-lg-8">
+            {% if posts is empty %}
+                <div class="alert alert-info">
+                    <i class="bi bi-info-circle"></i> Aucun article avec ce tag pour le moment.
+                </div>
+                <a href="{{ path('app_blog_index') }}" class="btn btn-outline-wine">
+                    <i class="bi bi-arrow-left"></i> Retour aux actualités
+                </a>
+            {% else %}
+                {# Articles list #}
+                <div class="row g-4">
+                    {% for post in posts %}
+                        <div class="col-12">
+                            {{ include('blog/_article_card.html.twig', { post: post }) }}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {# Back button #}
+                <div class="mt-4">
+                    <a href="{{ path('app_blog_index') }}" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left"></i> Toutes les actualités
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+
+        {# Sidebar #}
+        <div class="col-lg-4">
+            {{ include('blog/_sidebar.html.twig', { categories: categories }) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
