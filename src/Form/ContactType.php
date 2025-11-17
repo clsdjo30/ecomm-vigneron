@@ -2,16 +2,16 @@
 
 namespace App\Form;
 
+use App\Entity\ContactMessage;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Email;
-use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ContactType extends AbstractType
 {
@@ -19,57 +19,67 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom',
+                'label' => 'Nom complet',
                 'attr' => [
+                    'placeholder' => 'Votre nom',
                     'class' => 'form-control',
-                    'placeholder' => 'Votre nom'
                 ],
-                'constraints' => [
-                    new NotBlank(['message' => 'Veuillez saisir votre nom']),
-                    new Length(['min' => 2, 'minMessage' => 'Votre nom doit contenir au moins {{ limit }} caractères'])
-                ]
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Email',
                 'attr' => [
+                    'placeholder' => 'votre.email@exemple.com',
                     'class' => 'form-control',
-                    'placeholder' => 'votre@email.com'
                 ],
-                'constraints' => [
-                    new NotBlank(['message' => 'Veuillez saisir votre email']),
-                    new Email(['message' => 'Veuillez saisir un email valide'])
-                ]
             ])
-            ->add('subject', TextType::class, [
-                'label' => 'Sujet',
+            ->add('phone', TelType::class, [
+                'label' => 'Téléphone',
+                'required' => false,
                 'attr' => [
+                    'placeholder' => '+33 6 12 34 56 78',
                     'class' => 'form-control',
-                    'placeholder' => 'Objet de votre message'
                 ],
-                'constraints' => [
-                    new NotBlank(['message' => 'Veuillez saisir un sujet']),
-                ]
+            ])
+            ->add('subject', ChoiceType::class, [
+                'label' => 'Sujet',
+                'choices' => ContactMessage::getSubjectChoices(),
+                'placeholder' => 'Sélectionnez un sujet',
+                'attr' => [
+                    'class' => 'form-select',
+                ],
             ])
             ->add('message', TextareaType::class, [
                 'label' => 'Message',
                 'attr' => [
+                    'placeholder' => 'Votre message...',
                     'class' => 'form-control',
-                    'rows' => 6,
-                    'placeholder' => 'Votre message...'
+                    'rows' => 5,
                 ],
-                'constraints' => [
-                    new NotBlank(['message' => 'Veuillez saisir un message']),
-                    new Length(['min' => 10, 'minMessage' => 'Votre message doit contenir au moins {{ limit }} caractères'])
-                ]
+            ])
+            // Honeypot anti-spam (champ caché)
+            ->add('website', TextType::class, [
+                'label' => false,
+                'required' => false,
+                'mapped' => true,
+                'attr' => [
+                    'class' => 'd-none',
+                    'tabindex' => '-1',
+                    'autocomplete' => 'off',
+                ],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Envoyer',
-                'attr' => ['class' => 'btn btn-wine btn-lg w-100']
-            ]);
+                'attr' => [
+                    'class' => 'btn btn-primary',
+                ],
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([]);
+        $resolver->setDefaults([
+            'data_class' => ContactMessage::class,
+        ]);
     }
 }

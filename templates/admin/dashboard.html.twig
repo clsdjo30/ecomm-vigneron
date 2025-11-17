@@ -1,16 +1,25 @@
 {% extends '@EasyAdmin/page/content.html.twig' %}
 
 {% block content_title %}
-    Bienvenue sur le tableau de bord
+    <h1 class="title">Tableau de bord - Administration</h1>
 {% endblock %}
 
 {% block main %}
     <div class="row">
         <div class="col-md-12">
             <div class="card mb-4">
+                <div class="card-header">
+                    <h3>E-Commerce Vigneron</h3>
+                </div>
                 <div class="card-body">
-                    <h2 class="card-title">Domaine de la Gardiole</h2>
-                    <p class="card-text">Bienvenue dans votre espace d'administration. Gérez vos produits, catégories et commandes facilement.</p>
+                    <p>Bienvenue dans votre espace d'administration. Utilisez le menu de navigation pour accéder aux différentes sections.</p>
+                    <ul>
+                        <li><strong>Catalogue</strong> : Gérer les produits et catégories</li>
+                        <li><strong>Commandes</strong> : Consulter et gérer les commandes clients</li>
+                        <li><strong>Blog</strong> : Rédiger et publier des articles</li>
+                        <li><strong>Communication</strong> : Répondre aux messages de contact et gérer les abonnés newsletter</li>
+                        <li><strong>Utilisateurs</strong> : Gérer les comptes utilisateurs</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -38,6 +47,34 @@
                     <p class="card-text">Ajoutez un nouveau produit à votre catalogue</p>
                     <a href="{{ ea_url().setController('App\\Controller\\Admin\\ProductCrudController').setAction('new') }}" class="btn btn-success">
                         Ajouter un nouveau vin
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <i class="fa fa-newspaper fa-3x mb-3 text-info"></i>
+                    <h5 class="card-title">Articles de Blog</h5>
+                    <p class="card-text">Gérer les articles et actualités du domaine</p>
+                    <a href="{{ ea_url().setController('App\\Controller\\Admin\\PostCrudController').setAction('index') }}" class="btn btn-info">
+                        Gérer le blog
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <i class="fa fa-envelope fa-3x mb-3 text-warning"></i>
+                    <h5 class="card-title">Messages de Contact</h5>
+                    <p class="card-text">Répondre aux messages des visiteurs</p>
+                    <a href="{{ ea_url().setController('App\\Controller\\Admin\\ContactMessageCrudController').setAction('index') }}" class="btn btn-warning">
+                        Voir les messages
                     </a>
                 </div>
             </div>
