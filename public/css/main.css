@@ -222,7 +222,7 @@ img {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--color-wine-dark) 0%, var(--color-wine) 100%);
-    background-image: url('/images/hero-bg.jpg');
+    background-image: url('/uploads/vineyard.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
