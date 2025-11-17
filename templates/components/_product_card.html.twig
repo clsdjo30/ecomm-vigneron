@@ -1,7 +1,7 @@
 {# Composant réutilisable pour afficher une carte produit #}
 <div class="card h-100 shadow-sm">
     {% if product.imageUrl %}
-        <img src="{{ product.imageUrl }}" class="card-img-top" alt="{{ product.name }}">
+        <img src="/uploads/products/{{ product.imageUrl }}" class="card-img-top" alt="{{ product.name }}">
     {% else %}
         <img src="https://via.placeholder.com/300x250?text={{ product.name|url_encode }}" class="card-img-top" alt="{{ product.name }}">
     {% endif %}

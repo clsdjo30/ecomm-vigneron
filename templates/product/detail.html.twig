@@ -18,7 +18,7 @@
         {# Image #}
         <div class="col-md-6 mb-4">
             {% if product.imageUrl %}
-                <img src="{{ product.imageUrl }}" class="img-fluid rounded shadow" alt="{{ product.name }}">
+                <img src="/uploads/products/{{ product.imageUrl }}" class="img-fluid rounded shadow" alt="{{ product.name }}">
             {% else %}
                 <img src="https://via.placeholder.com/600x600?text={{ product.name|url_encode }}" class="img-fluid rounded shadow" alt="{{ product.name }}">
             {% endif %}

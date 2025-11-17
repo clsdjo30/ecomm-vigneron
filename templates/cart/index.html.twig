@@ -27,7 +27,7 @@
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 {% if item.product.imageUrl %}
-                                                    <img src="{{ item.product.imageUrl }}" alt="{{ item.product.name }}" class="img-thumbnail me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                                                    <img src="/uploads/products/{{ item.product.imageUrl }}" alt="{{ item.product.name }}" class="img-thumbnail me-3" style="width: 80px; height: 80px; object-fit: cover;">
                                                 {% endif %}
                                                 <div>
                                                     <h6 class="mb-0">{{ item.product.name }}</h6>
