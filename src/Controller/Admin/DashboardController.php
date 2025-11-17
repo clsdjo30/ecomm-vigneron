@@ -10,6 +10,8 @@ use App\Entity\Order;
 use App\Entity\Post;
 use App\Entity\Product;
 use App\Entity\Tag;
+use App\Entity\TeamMember;
+use App\Entity\Testimonial;
 use App\Entity\User;
 use App\Repository\ContactMessageRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -64,6 +66,10 @@ class DashboardController extends AbstractDashboardController
                 'danger'
             );
         yield MenuItem::linkToCrud('Abonnés Newsletter', 'fa fa-newspaper', NewsletterSubscriber::class);
+
+        yield MenuItem::section('Contenu Site');
+        yield MenuItem::linkToCrud('Témoignages', 'fa fa-quote-left', Testimonial::class);
+        yield MenuItem::linkToCrud('Équipe', 'fa fa-user-tie', TeamMember::class);
 
         yield MenuItem::section('Utilisateurs');
         yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-users', User::class);
