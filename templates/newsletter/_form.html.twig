@@ -1,0 +1,43 @@
+{# Composant réutilisable pour le formulaire d'inscription newsletter #}
+<div class="newsletter-form">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Newsletter</h5>
+            <p class="card-text">Inscrivez-vous à notre newsletter pour recevoir nos dernières offres et actualités.</p>
+
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+
+            {% for message in app.flashes('danger') %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+
+            {{ form_start(newsletter_form, {'action': path('newsletter_subscribe'), 'method': 'POST'}) }}
+                <div class="input-group">
+                    {{ form_widget(newsletter_form.email, {'attr': {'placeholder': 'Votre email...'}}) }}
+                    {{ form_widget(newsletter_form.submit) }}
+                </div>
+                {{ form_errors(newsletter_form.email) }}
+            {{ form_end(newsletter_form) }}
+        </div>
+    </div>
+</div>
+
+<style>
+.newsletter-form .input-group {
+    display: flex;
+}
+.newsletter-form .form-control {
+    flex: 1;
+}
+.newsletter-form .btn {
+    white-space: nowrap;
+}
+</style>

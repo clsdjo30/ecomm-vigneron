@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez-nous - E-Commerce Vigneron{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="mb-4">Contactez-nous</h1>
+
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+
+                {% for message in app.flashes('danger') %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text mb-4">
+                            Vous avez une question ? N'hésitez pas à nous contacter via le formulaire ci-dessous.
+                            Nous vous répondrons dans les plus brefs délais.
+                        </p>
+
+                        {{ form_start(form) }}
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    {{ form_row(form.name) }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    {{ form_row(form.email) }}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    {{ form_row(form.phone) }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    {{ form_row(form.subject) }}
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                {{ form_row(form.message) }}
+                            </div>
+
+                            {# Honeypot anti-spam (caché) #}
+                            {{ form_row(form.website) }}
+
+                            <div class="d-grid">
+                                {{ form_row(form.submit) }}
+                            </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
