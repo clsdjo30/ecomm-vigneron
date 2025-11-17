@@ -1,0 +1,84 @@
+<section class="blog-preview-section py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="section-subtitle">Actualités</span>
+            <h2 class="section-title">Dernières Nouvelles du Domaine</h2>
+            <p class="section-description">
+                Découvrez nos derniers articles, événements et actualités viticoles
+            </p>
+        </div>
+
+        {% if recentPosts is empty %}
+            <div class="alert alert-info text-center">
+                <i class="fas fa-info-circle me-2"></i>
+                Aucun article n'est actuellement publié. Revenez bientôt !
+            </div>
+        {% else %}
+            <div class="row g-4">
+                {% for post in recentPosts %}
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+                        <article class="blog-card">
+                            {% if post.featuredImage %}
+                                <div class="blog-image">
+                                    <img src="{{ asset('uploads/posts/' ~ post.featuredImage) }}"
+                                         alt="{{ post.title }}"
+                                         class="img-fluid">
+                                    <div class="blog-category-badge">
+                                        <i class="fas fa-folder me-1"></i>
+                                        {{ post.category.name }}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="blog-image-placeholder">
+                                    <i class="fas fa-newspaper fa-3x"></i>
+                                </div>
+                            {% endif %}
+
+                            <div class="blog-content">
+                                <div class="blog-meta">
+                                    <span class="blog-date">
+                                        <i class="far fa-calendar me-1"></i>
+                                        {{ post.createdAt|date('d/m/Y') }}
+                                    </span>
+                                    <span class="blog-tags">
+                                        {% for tag in post.tags|slice(0, 2) %}
+                                            <span class="blog-tag">
+                                                <i class="fas fa-tag me-1"></i>{{ tag.name }}
+                                            </span>
+                                        {% endfor %}
+                                    </span>
+                                </div>
+
+                                <h3 class="blog-title">
+                                    <a href="{{ path('blog_show', {slug: post.slug}) }}">
+                                        {{ post.title }}
+                                    </a>
+                                </h3>
+
+                                {% if post.excerpt %}
+                                    <p class="blog-excerpt">{{ post.excerpt }}</p>
+                                {% else %}
+                                    <p class="blog-excerpt">
+                                        {{ post.content|striptags|slice(0, 150) }}...
+                                    </p>
+                                {% endif %}
+
+                                <a href="{{ path('blog_show', {slug: post.slug}) }}" class="blog-read-more">
+                                    Lire la suite
+                                    <i class="fas fa-arrow-right ms-2"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="{{ path('blog_index') }}" class="btn btn-wine-primary btn-lg">
+                    <i class="fas fa-newspaper me-2"></i>
+                    Voir toutes les actualités
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</section>

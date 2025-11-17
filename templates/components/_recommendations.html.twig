@@ -1,0 +1,74 @@
+<section class="recommendations-section py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="section-subtitle">Nos Coups de Cœur</span>
+            <h2 class="section-title">Vins d'Exception</h2>
+            <p class="section-description">
+                Découvrez notre sélection de vins phares, élaborés avec passion et savoir-faire
+            </p>
+        </div>
+
+        <div class="row g-4">
+            {% if featuredProducts is empty %}
+                <div class="col-12">
+                    <div class="alert alert-info text-center">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Aucun vin phare n'est actuellement disponible. Consultez notre <a href="{{ path('app_products') }}">catalogue complet</a>.
+                    </div>
+                </div>
+            {% else %}
+                {% for product in featuredProducts %}
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+                        <div class="product-card">
+                            {% if product.image %}
+                                <div class="product-image">
+                                    <img src="{{ asset('uploads/products/' ~ product.image) }}" alt="{{ product.name }}" class="img-fluid">
+                                    {% if product.isFeatured %}
+                                        <span class="product-badge badge-featured">
+                                            <i class="fas fa-star"></i> Coup de Cœur
+                                        </span>
+                                    {% endif %}
+                                </div>
+                            {% else %}
+                                <div class="product-image-placeholder">
+                                    <i class="fas fa-wine-bottle fa-3x"></i>
+                                </div>
+                            {% endif %}
+
+                            <div class="product-body">
+                                <div class="product-category">
+                                    <i class="fas fa-tag me-1"></i>
+                                    {{ product.category.name }}
+                                </div>
+
+                                <h3 class="product-title">{{ product.name }}</h3>
+
+                                <p class="product-description">
+                                    {{ product.description|length > 100 ? product.description|slice(0, 100) ~ '...' : product.description }}
+                                </p>
+
+                                <div class="product-footer">
+                                    <div class="product-price">
+                                        {{ product.price|format_currency('EUR', locale='fr') }}
+                                    </div>
+
+                                    <a href="{{ path('app_product_show', {slug: product.slug}) }}" class="btn btn-wine-outline btn-sm">
+                                        <i class="fas fa-eye me-1"></i>
+                                        Découvrir
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="text-center mt-5" data-aos="fade-up">
+            <a href="{{ path('app_products') }}" class="btn btn-wine-primary btn-lg">
+                <i class="fas fa-wine-glass-alt me-2"></i>
+                Voir tous nos vins
+            </a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,52 @@
+<section class="newsletter-section py-5">
+    <div class="container">
+        <div class="newsletter-wrapper">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <div class="newsletter-content">
+                        <i class="fas fa-envelope-open-text newsletter-icon"></i>
+                        <h2 class="newsletter-title">Restez Informé</h2>
+                        <p class="newsletter-description">
+                            Inscrivez-vous à notre newsletter et recevez en exclusivité nos dernières actualités,
+                            nos nouveaux crus et nos offres spéciales.
+                        </p>
+                        <ul class="newsletter-benefits">
+                            <li><i class="fas fa-check-circle me-2"></i> Nouveautés en avant-première</li>
+                            <li><i class="fas fa-check-circle me-2"></i> Offres exclusives réservées aux abonnés</li>
+                            <li><i class="fas fa-check-circle me-2"></i> Conseils de dégustation et accords mets-vins</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="newsletter-form-wrapper">
+                        {{ form_start(newsletterForm, {'action': path('newsletter_subscribe'), 'attr': {'class': 'newsletter-form'}}) }}
+                            <div class="form-group mb-3">
+                                <label for="{{ newsletterForm.email.vars.id }}" class="form-label">
+                                    <i class="fas fa-at me-2"></i>Votre adresse email
+                                </label>
+                                {{ form_widget(newsletterForm.email, {
+                                    'attr': {
+                                        'class': 'form-control form-control-lg',
+                                        'placeholder': 'exemple@email.com'
+                                    }
+                                }) }}
+                                {{ form_errors(newsletterForm.email) }}
+                            </div>
+
+                            <button type="submit" class="btn btn-wine-primary btn-lg w-100">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                S'inscrire à la newsletter
+                            </button>
+
+                            <p class="newsletter-privacy mt-3">
+                                <i class="fas fa-lock me-1"></i>
+                                <small>Vos données sont protégées. Désinscription possible à tout moment.</small>
+                            </p>
+                        {{ form_end(newsletterForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

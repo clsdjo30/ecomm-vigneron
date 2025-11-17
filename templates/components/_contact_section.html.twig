@@ -1,0 +1,105 @@
+<section class="contact-section py-5">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="section-subtitle">Contact</span>
+            <h2 class="section-title">Visitez-Nous</h2>
+            <p class="section-description">
+                Le Domaine de la Gardiole vous accueille pour des visites et dégustations
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4" data-aos="fade-right">
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Adresse</h3>
+                    <p>
+                        Domaine de la Gardiole<br>
+                        Route des Vignes<br>
+                        34000 Montpellier<br>
+                        France
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4" data-aos="fade-up">
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Téléphone</h3>
+                    <p>
+                        <a href="tel:+33467123456">+33 (0)4 67 12 34 56</a>
+                    </p>
+                    <p class="text-muted small">
+                        Du lundi au samedi<br>
+                        9h00 - 12h30 / 14h00 - 18h00
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4" data-aos="fade-left">
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>
+                        <a href="mailto:contact@domaine-gardiole.fr">contact@domaine-gardiole.fr</a>
+                    </p>
+                    <p class="text-muted small">
+                        Réponse sous 24-48h
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                <div class="contact-cta-card">
+                    <i class="fas fa-glass-cheers fa-3x mb-3 text-wine"></i>
+                    <h3>Visite & Dégustation</h3>
+                    <p>
+                        Découvrez notre domaine et dégustez nos vins dans un cadre authentique.
+                        Réservation recommandée.
+                    </p>
+                    <a href="{{ path('app_contact') }}" class="btn btn-wine-primary">
+                        <i class="fas fa-calendar-alt me-2"></i>
+                        Réserver une visite
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="contact-cta-card">
+                    <i class="fas fa-comments fa-3x mb-3 text-wine"></i>
+                    <h3>Une Question ?</h3>
+                    <p>
+                        Notre équipe est à votre disposition pour répondre à toutes vos questions
+                        sur nos vins et notre domaine.
+                    </p>
+                    <a href="{{ path('app_contact') }}" class="btn btn-wine-outline">
+                        <i class="fas fa-paper-plane me-2"></i>
+                        Nous contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map Placeholder -->
+        <div class="mt-5" data-aos="fade-up">
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92681.36591330685!2d3.8086119!3d43.610769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b6af0725dd9db1%3A0xad8756742894e802!2sMontpellier!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr"
+                        width="100%"
+                        height="400"
+                        style="border:0; border-radius: 15px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>

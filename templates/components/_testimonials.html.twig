@@ -1,0 +1,81 @@
+<section class="testimonials-section py-5">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="section-subtitle">Témoignages</span>
+            <h2 class="section-title">Ce Que Disent Nos Clients</h2>
+            <p class="section-description">
+                Leurs avis et expériences avec nos vins
+            </p>
+        </div>
+
+        {% if testimonials is empty %}
+            <div class="alert alert-info text-center">
+                <i class="fas fa-info-circle me-2"></i>
+                Aucun témoignage n'est actuellement disponible.
+            </div>
+        {% else %}
+            <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    {% for testimonial in testimonials %}
+                        <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="{{ loop.index0 }}"
+                                class="{{ loop.first ? 'active' : '' }}" aria-label="Slide {{ loop.index }}"></button>
+                    {% endfor %}
+                </div>
+
+                <div class="carousel-inner">
+                    {% for testimonial in testimonials %}
+                        <div class="carousel-item {{ loop.first ? 'active' : '' }}">
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    <div class="quote-icon">
+                                        <i class="fas fa-quote-left"></i>
+                                    </div>
+
+                                    <div class="testimonial-rating mb-3">
+                                        {% for i in 1..5 %}
+                                            <i class="fas fa-star {{ i <= testimonial.rating ? 'text-warning' : 'text-muted' }}"></i>
+                                        {% endfor %}
+                                    </div>
+
+                                    <p class="testimonial-text">
+                                        "{{ testimonial.content }}"
+                                    </p>
+
+                                    <div class="testimonial-author">
+                                        {% if testimonial.image %}
+                                            <img src="{{ asset('uploads/testimonials/' ~ testimonial.image) }}"
+                                                 alt="{{ testimonial.name }}"
+                                                 class="testimonial-avatar">
+                                        {% else %}
+                                            <div class="testimonial-avatar-placeholder">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                        {% endif %}
+
+                                        <div class="testimonial-info">
+                                            <div class="testimonial-name">{{ testimonial.name }}</div>
+                                            {% if testimonial.position %}
+                                                <div class="testimonial-position">{{ testimonial.position }}</div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {% if testimonials|length > 1 %}
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Précédent</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Suivant</span>
+                    </button>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</section>

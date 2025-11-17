@@ -1,0 +1,66 @@
+<section class="team-section py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="section-subtitle">Notre Équipe</span>
+            <h2 class="section-title">Les Artisans du Terroir</h2>
+            <p class="section-description">
+                Rencontrez les passionnés qui font vivre notre domaine
+            </p>
+        </div>
+
+        {% if teamMembers is empty %}
+            <div class="alert alert-info text-center">
+                <i class="fas fa-info-circle me-2"></i>
+                Les informations sur l'équipe seront bientôt disponibles.
+            </div>
+        {% else %}
+            <div class="row g-4">
+                {% for member in teamMembers %}
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+                        <div class="team-card">
+                            <div class="team-photo-wrapper">
+                                {% if member.photo %}
+                                    <img src="{{ asset('uploads/team/' ~ member.photo) }}"
+                                         alt="{{ member.name }}"
+                                         class="team-photo">
+                                {% else %}
+                                    <div class="team-photo-placeholder">
+                                        <i class="fas fa-user fa-3x"></i>
+                                    </div>
+                                {% endif %}
+
+                                <div class="team-overlay">
+                                    <div class="team-social">
+                                        {% if member.email %}
+                                            <a href="mailto:{{ member.email }}" class="social-link" title="Email">
+                                                <i class="fas fa-envelope"></i>
+                                            </a>
+                                        {% endif %}
+                                        {% if member.phone %}
+                                            <a href="tel:{{ member.phone }}" class="social-link" title="Téléphone">
+                                                <i class="fas fa-phone"></i>
+                                            </a>
+                                        {% endif %}
+                                        {% if member.linkedinUrl %}
+                                            <a href="{{ member.linkedinUrl }}" class="social-link" target="_blank" rel="noopener" title="LinkedIn">
+                                                <i class="fab fa-linkedin"></i>
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="team-info">
+                                <h3 class="team-name">{{ member.name }}</h3>
+                                <p class="team-role">{{ member.role }}</p>
+                                {% if member.bio %}
+                                    <p class="team-bio">{{ member.bio }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>

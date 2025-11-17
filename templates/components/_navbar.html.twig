@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-wine sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="{{ path('app_home') }}">
+            <i class="fas fa-wine-bottle"></i>
+            <span class="brand-name">Domaine de la Gardiole</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link {{ app.request.attributes.get('_route') == 'app_home' ? 'active' : '' }}" href="{{ path('app_home') }}">
+                        <i class="fas fa-home"></i> Accueil
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ app.request.attributes.get('_route') == 'app_domain' ? 'active' : '' }}" href="{{ path('app_domain') }}">
+                        <i class="fas fa-landmark"></i> Le Domaine
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownVins" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-wine-glass-alt"></i> Nos Vins
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownVins">
+                        <li><a class="dropdown-item" href="{{ path('app_products', {category: 'rouges'}) }}">
+                            <i class="fas fa-circle text-danger"></i> Les Rouges
+                        </a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_products', {category: 'blancs'}) }}">
+                            <i class="fas fa-circle text-warning"></i> Les Blancs
+                        </a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_products', {category: 'roses'}) }}">
+                            <i class="fas fa-circle" style="color: #FFB6C1;"></i> Les Rosés
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{{ path('app_products') }}">
+                            <i class="fas fa-th"></i> Tous les vins
+                        </a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ app.request.attributes.get('_route') starts with 'blog_' ? 'active' : '' }}" href="{{ path('blog_index') }}">
+                        <i class="fas fa-newspaper"></i> Actualités
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}" href="{{ path('app_contact') }}">
+                        <i class="fas fa-envelope"></i> Contact
+                    </a>
+                </li>
+
+                {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item">
+                    <a class="nav-link text-warning" href="{{ path('admin') }}">
+                        <i class="fas fa-user-shield"></i> Admin
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

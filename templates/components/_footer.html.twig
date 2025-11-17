@@ -1,0 +1,133 @@
+<footer class="footer-section">
+    <div class="footer-main">
+        <div class="container">
+            <div class="row g-4">
+                <!-- À propos -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-widget">
+                        <h3 class="footer-title">
+                            <i class="fas fa-wine-bottle me-2"></i>
+                            Domaine de la Gardiole
+                        </h3>
+                        <p class="footer-text">
+                            Vignerons passionnés depuis trois générations, nous cultivons avec soin
+                            nos vignes pour produire des vins d'exception qui racontent l'histoire
+                            de notre terroir unique.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" class="social-icon" title="Facebook" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon" title="Instagram" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon" title="Twitter" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon" title="LinkedIn" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Liens utiles -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h3 class="footer-title">Le Domaine</h3>
+                        <ul class="footer-links">
+                            <li><a href="{{ path('app_home') }}"><i class="fas fa-chevron-right me-2"></i>Accueil</a></li>
+                            <li><a href="{{ path('app_domain') }}"><i class="fas fa-chevron-right me-2"></i>Notre Histoire</a></li>
+                            <li><a href="{{ path('app_products') }}"><i class="fas fa-chevron-right me-2"></i>Nos Vins</a></li>
+                            <li><a href="{{ path('blog_index') }}"><i class="fas fa-chevron-right me-2"></i>Actualités</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Nos vins -->
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h3 class="footer-title">Nos Vins</h3>
+                        <ul class="footer-links">
+                            <li><a href="{{ path('app_products', {category: 'rouges'}) }}"><i class="fas fa-chevron-right me-2"></i>Vins Rouges</a></li>
+                            <li><a href="{{ path('app_products', {category: 'blancs'}) }}"><i class="fas fa-chevron-right me-2"></i>Vins Blancs</a></li>
+                            <li><a href="{{ path('app_products', {category: 'roses'}) }}"><i class="fas fa-chevron-right me-2"></i>Vins Rosés</a></li>
+                            <li><a href="{{ path('app_products') }}"><i class="fas fa-chevron-right me-2"></i>Catalogue Complet</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-widget">
+                        <h3 class="footer-title">Nous Contacter</h3>
+                        <ul class="footer-contact">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>
+                                    Route des Vignes<br>
+                                    34000 Montpellier, France
+                                </span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <span><a href="tel:+33467123456">+33 (0)4 67 12 34 56</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span><a href="mailto:contact@domaine-gardiole.fr">contact@domaine-gardiole.fr</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <span>
+                                    Lun - Sam: 9h00 - 18h00<br>
+                                    Dimanche: Fermé
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="footer-copyright mb-0">
+                        &copy; {{ 'now'|date('Y') }} Domaine de la Gardiole. Tous droits réservés.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="footer-legal">
+                        <li><a href="#">Mentions Légales</a></li>
+                        <li><a href="#">Politique de Confidentialité</a></li>
+                        <li><a href="#">CGV</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" title="Retour en haut">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+</footer>
+
+<script>
+// Scroll to top button
+window.addEventListener('scroll', function() {
+    const scrollButton = document.getElementById('scrollToTop');
+    if (window.pageYOffset > 300) {
+        scrollButton.classList.add('show');
+    } else {
+        scrollButton.classList.remove('show');
+    }
+});
+
+document.getElementById('scrollToTop').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
