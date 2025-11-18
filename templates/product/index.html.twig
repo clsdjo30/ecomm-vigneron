@@ -1,0 +1,94 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Tous nos Vins - Domaine de la Gardiole{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    {# En-tête #}
+    <div class="text-center mb-5">
+        <h1 class="display-4">Tous nos Vins</h1>
+        <p class="lead text-muted">Découvrez notre collection complète de vins d'exception</p>
+    </div>
+
+    {# Filtres #}
+    <div class="row mb-4">
+        <div class="col-lg-3 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-header bg-wine text-white">
+                    <h5 class="mb-0"><i class="fas fa-filter"></i> Filtres</h5>
+                </div>
+                <div class="card-body">
+                    <form method="get" action="{{ path('app_products') }}" id="filterForm">
+                        {# Filtre par catégorie #}
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Catégorie</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="category" id="categoryAll" value=""
+                                    {% if not currentCategory %}checked{% endif %} onchange="this.form.submit()">
+                                <label class="form-check-label" for="categoryAll">
+                                    Toutes les catégories
+                                </label>
+                            </div>
+                            {% for category in categories %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="category" id="category{{ category.id }}"
+                                        value="{{ category.slug }}"
+                                        {% if currentCategory == category.slug %}checked{% endif %}
+                                        onchange="this.form.submit()">
+                                    <label class="form-check-label" for="category{{ category.id }}">
+                                        {{ category.name }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <hr>
+
+                        {# Tri par prix #}
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Trier par</label>
+                            <select name="sort" class="form-select" onchange="this.form.submit()">
+                                <option value="name" {% if currentSort == 'name' %}selected{% endif %}>Nom (A-Z)</option>
+                                <option value="price_asc" {% if currentSort == 'price_asc' %}selected{% endif %}>Prix croissant</option>
+                                <option value="price_desc" {% if currentSort == 'price_desc' %}selected{% endif %}>Prix décroissant</option>
+                            </select>
+                        </div>
+
+                        {# Bouton réinitialiser #}
+                        <a href="{{ path('app_products') }}" class="btn btn-outline-secondary btn-sm w-100">
+                            <i class="fas fa-redo"></i> Réinitialiser
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {# Liste des produits #}
+        <div class="col-lg-9">
+            {# Compteur de résultats #}
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <p class="text-muted mb-0">
+                    <strong>{{ products|length }}</strong> vin(s) trouvé(s)
+                </p>
+            </div>
+
+            {# Grille de produits #}
+            {% if products|length > 0 %}
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    {% for product in products %}
+                        <div class="col">
+                            {% include 'components/_product_card.html.twig' with {'product': product} %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="alert alert-info text-center">
+                    <i class="fas fa-info-circle fs-3"></i>
+                    <p class="mt-3 mb-0">Aucun produit disponible avec ces filtres.</p>
+                    <a href="{{ path('app_products') }}" class="btn btn-outline-primary mt-3">Voir tous les vins</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

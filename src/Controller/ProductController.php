@@ -5,20 +5,45 @@ namespace App\Controller;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class ProductController extends AbstractController
 {
     #[Route('/nos-vins', name: 'app_products')]
-    public function index(ProductRepository $productRepository, CategoryRepository $categoryRepository): Response
+    public function index(Request $request, ProductRepository $productRepository, CategoryRepository $categoryRepository): Response
     {
-        $products = $productRepository->findAll();
+        $categorySlug = $request->query->get('category');
+        $sortBy = $request->query->get('sort', 'name'); // default: name
+
+        // Get all categories for the filter
         $categories = $categoryRepository->findAll();
+
+        // Filter by category if specified
+        if ($categorySlug) {
+            $category = $categoryRepository->findOneBy(['slug' => $categorySlug]);
+            $products = $category ? $category->getProducts()->toArray() : [];
+        } else {
+            $products = $productRepository->findAll();
+        }
+
+        // Sort products
+        usort($products, function($a, $b) use ($sortBy) {
+            if ($sortBy === 'price_asc') {
+                return $a->getPrice() <=> $b->getPrice();
+            } elseif ($sortBy === 'price_desc') {
+                return $b->getPrice() <=> $a->getPrice();
+            } else { // name
+                return strcmp($a->getName(), $b->getName());
+            }
+        });
 
         return $this->render('product/index.html.twig', [
             'products' => $products,
             'categories' => $categories,
+            'currentCategory' => $categorySlug,
+            'currentSort' => $sortBy,
         ]);
     }
 
