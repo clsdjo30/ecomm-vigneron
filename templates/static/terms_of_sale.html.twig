@@ -1,0 +1,179 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Conditions Générales de Vente - Domaine de la Gardiole{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <h1 class="display-4 mb-5">Conditions Générales de Vente (CGV)</h1>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">1. Objet</h2>
+                <p>
+                    Les présentes Conditions Générales de Vente (CGV) régissent les ventes de vins et produits du vignoble
+                    effectuées par le Domaine de la Gardiole. Toute commande implique l'acceptation sans réserve des présentes CGV.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">2. Produits</h2>
+                <p>
+                    Les produits proposés à la vente sont décrits avec la plus grande exactitude possible.
+                    Les photographies sont non contractuelles. En cas d'erreur manifeste entre les caractéristiques
+                    annoncées et le produit livré, celui-ci pourra être échangé.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">3. Prix</h2>
+                <p>
+                    Les prix de nos produits sont indiqués en euros TTC (toutes taxes comprises).
+                    Ils tiennent compte de la TVA applicable au jour de la commande.
+                    Tout changement du taux pourra être répercuté sur le prix des produits.
+                </p>
+                <p>
+                    Les prix indiqués ne comprennent pas les frais de livraison, facturés en supplément
+                    et indiqués avant la validation de la commande.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">4. Commande</h2>
+                <p>
+                    Pour passer commande, vous devez :
+                </p>
+                <ul>
+                    <li>Être majeur(e) et avoir la capacité juridique</li>
+                    <li>Remplir le formulaire de commande en ligne</li>
+                    <li>Valider votre commande après l'avoir vérifiée</li>
+                    <li>Effectuer le paiement selon les modalités prévues</li>
+                </ul>
+                <p>
+                    La vente ne sera considérée comme définitive qu'après l'envoi d'une confirmation de commande
+                    par email et l'encaissement du paiement.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">5. Paiement</h2>
+                <p>
+                    Le règlement de vos achats s'effectue par :
+                </p>
+                <ul>
+                    <li>Carte bancaire (Visa, Mastercard, American Express)</li>
+                    <li>Virement bancaire</li>
+                    <li>Chèque (pour la France uniquement)</li>
+                </ul>
+                <p>
+                    Le paiement par carte bancaire est sécurisé. Les informations transmises sont chiffrées
+                    et ne peuvent être lues au cours du transport sur le réseau.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">6. Livraison et retrait</h2>
+                <h4 class="h5 mb-3">6.1 Click & Collect</h4>
+                <p>
+                    Vous pouvez retirer votre commande directement au domaine :
+                </p>
+                <ul>
+                    <li>Délai de préparation : 48 heures ouvrées</li>
+                    <li>Horaires de retrait : du lundi au samedi, 9h-18h</li>
+                    <li>Adresse : Route des Vignes, 34000 Montpellier</li>
+                </ul>
+
+                <h4 class="h5 mb-3 mt-4">6.2 Livraison à domicile</h4>
+                <p>
+                    Les livraisons sont effectuées en France métropolitaine uniquement.
+                    Les délais de livraison sont de 3 à 5 jours ouvrés après expédition.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">7. Droit de rétractation</h2>
+                <p>
+                    Conformément à l'article L221-18 du Code de la consommation, le droit de rétractation
+                    ne peut être exercé pour les denrées périssables ou susceptibles de se détériorer rapidement.
+                </p>
+                <p>
+                    <strong>En raison de la nature périssable des vins, aucun droit de rétractation ne peut être exercé.</strong>
+                </p>
+                <p>
+                    Toutefois, en cas de produit défectueux ou non conforme, vous pouvez nous contacter dans les
+                    48 heures suivant la réception de votre commande.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">8. Garanties</h2>
+                <p>
+                    Tous nos produits bénéficient de la garantie légale de conformité et de la garantie des vices cachés,
+                    prévues par le Code civil. En cas de non-conformité d'un produit vendu, il pourra être retourné,
+                    échangé ou remboursé.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">9. Responsabilité</h2>
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <strong>L'abus d'alcool est dangereux pour la santé. À consommer avec modération.</strong>
+                </div>
+                <p>
+                    Le Domaine de la Gardiole ne saurait être tenu responsable de l'usage inapproprié
+                    des produits vendus. La consommation d'alcool est interdite aux mineurs.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">10. Protection des données</h2>
+                <p>
+                    Les données personnelles collectées sont nécessaires au traitement de votre commande
+                    et à la gestion de la relation client. Elles font l'objet d'un traitement informatique.
+                </p>
+                <p>
+                    Pour plus d'informations, consultez notre
+                    <a href="{{ path('app_privacy_policy') }}">Politique de Confidentialité</a>.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">11. Litiges</h2>
+                <p>
+                    Les présentes CGV sont soumises au droit français. En cas de litige, une solution amiable
+                    sera recherchée avant toute action judiciaire. À défaut, les tribunaux français seront
+                    seuls compétents.
+                </p>
+                <p>
+                    Conformément à la réglementation, vous pouvez également recourir à la plateforme européenne
+                    de règlement en ligne des litiges :
+                    <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">
+                        https://ec.europa.eu/consumers/odr/
+                    </a>
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">12. Contact</h2>
+                <p>
+                    Pour toute question concernant nos CGV, vous pouvez nous contacter :
+                </p>
+                <div class="card">
+                    <div class="card-body">
+                        <p class="mb-2"><strong>Email :</strong> <a href="mailto:contact@domaine-gardiole.fr">contact@domaine-gardiole.fr</a></p>
+                        <p class="mb-2"><strong>Téléphone :</strong> +33 (0)4 67 12 34 56</p>
+                        <p class="mb-0"><strong>Adresse :</strong> Route des Vignes, 34000 Montpellier, France</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="text-center mt-5">
+                <a href="{{ path('app_home') }}" class="btn btn-wine">
+                    <i class="fas fa-arrow-left me-2"></i> Retour à l'accueil
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

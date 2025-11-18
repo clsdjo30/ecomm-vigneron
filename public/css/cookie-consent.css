@@ -1,0 +1,275 @@
+/**
+ * Cookie Consent Styles - RGPD
+ */
+
+/* Cookie Banner */
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #722f37 0%, #4a1f25 100%);
+    color: white;
+    padding: 1.5rem 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.cookie-consent.show {
+    transform: translateY(0);
+}
+
+.cookie-consent-content {
+    position: relative;
+}
+
+.cookie-icon {
+    font-size: 2rem;
+    color: #f5f5dc;
+    flex-shrink: 0;
+}
+
+.cookie-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.cookie-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+.cookie-link {
+    color: #f5f5dc;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.cookie-link:hover {
+    color: white;
+}
+
+.cookie-buttons {
+    gap: 0.5rem;
+}
+
+.cookie-buttons .btn {
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.cookie-buttons .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: white;
+}
+
+/* Cookie Settings Button (Fixed) */
+.cookie-settings-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #722f37 0%, #4a1f25 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(114, 47, 55, 0.4);
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.cookie-settings-btn.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.cookie-settings-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(114, 47, 55, 0.6);
+}
+
+.cookie-settings-btn:active {
+    transform: scale(0.95);
+}
+
+/* Cookie Preferences Modal */
+.cookie-category {
+    padding: 1rem;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    background-color: #f8f9fa;
+    transition: all 0.2s ease;
+}
+
+.cookie-category:hover {
+    background-color: #fff;
+    border-color: #722f37;
+    box-shadow: 0 2px 8px rgba(114, 47, 55, 0.1);
+}
+
+.cookie-category h6 {
+    font-weight: 600;
+    color: #333;
+}
+
+.cookie-category .form-check-input {
+    width: 3rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.cookie-category .form-check-input:checked {
+    background-color: #722f37;
+    border-color: #722f37;
+}
+
+.cookie-category .form-check-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.cookie-category .form-check-label {
+    font-size: 0.875rem;
+}
+
+/* Cookie Toast Notification */
+.cookie-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateX(400px);
+    transition: all 0.3s ease;
+}
+
+.cookie-toast.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.cookie-toast i {
+    font-size: 1.2rem;
+}
+
+/* Modal Customization */
+#cookiePreferencesModal .modal-header {
+    background: linear-gradient(135deg, #722f37 0%, #4a1f25 100%);
+    color: white;
+    border-bottom: none;
+}
+
+#cookiePreferencesModal .modal-header .btn-close {
+    filter: invert(1);
+}
+
+#cookiePreferencesModal .modal-footer {
+    border-top: 1px solid #dee2e6;
+    padding: 1rem 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+    .cookie-consent {
+        padding: 1rem 0;
+    }
+
+    .cookie-icon {
+        font-size: 1.5rem;
+    }
+
+    .cookie-title {
+        font-size: 1rem;
+    }
+
+    .cookie-text {
+        font-size: 0.875rem;
+    }
+
+    .cookie-buttons {
+        flex-direction: column;
+    }
+
+    .cookie-buttons .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .cookie-consent {
+        padding: 0.75rem 0;
+    }
+
+    .cookie-icon {
+        display: none;
+    }
+
+    .cookie-settings-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .cookie-toast {
+        right: 10px;
+        left: 10px;
+        top: 10px;
+    }
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Accessibility */
+.cookie-consent *:focus,
+.cookie-settings-btn:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* Print */
+@media print {
+    .cookie-consent,
+    .cookie-settings-btn,
+    .cookie-toast {
+        display: none !important;
+    }
+}

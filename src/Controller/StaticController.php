@@ -75,4 +75,22 @@ class StaticController extends AbstractController
             'contactForm' => $form->createView(),
         ]);
     }
+
+    #[Route('/politique-de-confidentialite', name: 'app_privacy_policy')]
+    public function privacyPolicy(): Response
+    {
+        return $this->render('static/privacy_policy.html.twig');
+    }
+
+    #[Route('/mentions-legales', name: 'app_legal_notice')]
+    public function legalNotice(): Response
+    {
+        return $this->render('static/legal_notice.html.twig');
+    }
+
+    #[Route('/cgv', name: 'app_terms_of_sale')]
+    public function termsOfSale(): Response
+    {
+        return $this->render('static/terms_of_sale.html.twig');
+    }
 }

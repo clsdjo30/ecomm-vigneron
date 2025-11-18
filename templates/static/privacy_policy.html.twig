@@ -1,0 +1,198 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Politique de Confidentialité et Cookies - Domaine de la Gardiole{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <h1 class="display-4 mb-4">Politique de Confidentialité et Cookies</h1>
+            <p class="lead text-muted mb-5">
+                Dernière mise à jour : {{ 'now'|date('d/m/Y') }}
+            </p>
+
+            {# Introduction #}
+            <section class="mb-5">
+                <h2 class="h3 mb-3"><i class="fas fa-shield-alt text-wine me-2"></i> Introduction</h2>
+                <p>
+                    Le Domaine de la Gardiole s'engage à protéger la confidentialité et la sécurité de vos données personnelles.
+                    Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations
+                    conformément au Règlement Général sur la Protection des Données (RGPD).
+                </p>
+            </section>
+
+            {# Données collectées #}
+            <section class="mb-5">
+                <h2 class="h3 mb-3"><i class="fas fa-database text-wine me-2"></i> Données que nous collectons</h2>
+                <p>Nous pouvons collecter les types de données suivants :</p>
+                <ul>
+                    <li><strong>Informations d'identification :</strong> nom, prénom, adresse email</li>
+                    <li><strong>Données de commande :</strong> historique des achats, préférences de produits</li>
+                    <li><strong>Données techniques :</strong> adresse IP, type de navigateur, pages visitées</li>
+                    <li><strong>Données de communication :</strong> messages envoyés via le formulaire de contact</li>
+                </ul>
+            </section>
+
+            {# Utilisation des données #}
+            <section class="mb-5">
+                <h2 class="h3 mb-3"><i class="fas fa-tasks text-wine me-2"></i> Comment nous utilisons vos données</h2>
+                <p>Vos données personnelles sont utilisées pour :</p>
+                <ul>
+                    <li>Traiter et gérer vos commandes</li>
+                    <li>Vous envoyer des informations sur nos produits et services (avec votre consentement)</li>
+                    <li>Améliorer notre site web et nos services</li>
+                    <li>Répondre à vos questions et demandes</li>
+                    <li>Respecter nos obligations légales</li>
+                </ul>
+            </section>
+
+            {# Cookies #}
+            <section class="mb-5">
+                <h2 class="h3 mb-3"><i class="fas fa-cookie-bite text-wine me-2"></i> Politique de Cookies</h2>
+
+                <h3 class="h5 mb-3">Qu'est-ce qu'un cookie ?</h3>
+                <p>
+                    Un cookie est un petit fichier texte stocké sur votre appareil lorsque vous visitez notre site.
+                    Les cookies nous aident à améliorer votre expérience de navigation.
+                </p>
+
+                <h3 class="h5 mb-3 mt-4">Types de cookies que nous utilisons</h3>
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h6 class="card-title">
+                            <i class="fas fa-shield-alt text-primary me-2"></i>
+                            Cookies Essentiels (Obligatoires)
+                        </h6>
+                        <p class="card-text">
+                            Ces cookies sont nécessaires au fonctionnement du site. Ils permettent des fonctionnalités de base
+                            comme la navigation sécurisée et l'accès aux zones protégées. Le site ne peut pas fonctionner
+                            correctement sans ces cookies.
+                        </p>
+                        <p class="small mb-0"><strong>Durée de conservation :</strong> Session</p>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h6 class="card-title">
+                            <i class="fas fa-chart-line text-info me-2"></i>
+                            Cookies Analytiques (Optionnels)
+                        </h6>
+                        <p class="card-text">
+                            Ces cookies nous permettent de comprendre comment les visiteurs utilisent notre site en collectant
+                            des informations de manière anonyme. Cela nous aide à améliorer le fonctionnement du site.
+                        </p>
+                        <p class="small mb-0"><strong>Durée de conservation :</strong> 13 mois maximum</p>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h6 class="card-title">
+                            <i class="fas fa-bullhorn text-warning me-2"></i>
+                            Cookies Marketing (Optionnels)
+                        </h6>
+                        <p class="card-text">
+                            Ces cookies sont utilisés pour vous proposer des publicités pertinentes et suivre l'efficacité
+                            de nos campagnes marketing. Ils peuvent être déposés par nos partenaires publicitaires.
+                        </p>
+                        <p class="small mb-0"><strong>Durée de conservation :</strong> 13 mois maximum</p>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h6 class="card-title">
+                            <i class="fas fa-sliders-h text-success me-2"></i>
+                            Cookies de Préférences (Optionnels)
+                        </h6>
+                        <p class="card-text">
+                            Ces cookies permettent au site de se souvenir de vos choix (langue, région, etc.)
+                            pour vous offrir une expérience plus personnalisée.
+                        </p>
+                        <p class="small mb-0"><strong>Durée de conservation :</strong> 12 mois</p>
+                    </div>
+                </div>
+
+                <div class="alert alert-info mt-4">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <strong>Gérer vos préférences de cookies :</strong>
+                    Vous pouvez à tout moment modifier vos préférences en cliquant sur le bouton de paramétrage des cookies
+                    en bas à droite de l'écran, ou en
+                    <a href="#" onclick="cookieConsent.customize(); return false;" class="alert-link">cliquant ici</a>.
+                </div>
+            </section>
+
+            {# Vos droits #}
+            <section class="mb-5">
+                <h2 class="h3 mb-3"><i class="fas fa-user-shield text-wine me-2"></i> Vos droits RGPD</h2>
+                <p>Conformément au RGPD, vous disposez des droits suivants :</p>
+                <ul>
+                    <li><strong>Droit d'accès :</strong> vous pouvez demander l'accès à vos données personnelles</li>
+                    <li><strong>Droit de rectification :</strong> vous pouvez demander la correction de vos données</li>
+                    <li><strong>Droit à l'effacement :</strong> vous pouvez demander la suppression de vos données</li>
+                    <li><strong>Droit à la limitation :</strong> vous pouvez demander la limitation du traitement de vos données</li>
+                    <li><strong>Droit à la portabilité :</strong> vous pouvez demander le transfert de vos données</li>
+                    <li><strong>Droit d'opposition :</strong> vous pouvez vous opposer au traitement de vos données</li>
+                </ul>
+                <p>
+                    Pour exercer ces droits, contactez-nous à :
+                    <a href="mailto:contact@domaine-gardiole.fr">contact@domaine-gardiole.fr</a>
+                </p>
+            </section>
+
+            {# Sécurité #}
+            <section class="mb-5">
+                <h2 class="h3 mb-3"><i class="fas fa-lock text-wine me-2"></i> Sécurité des données</h2>
+                <p>
+                    Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour protéger
+                    vos données personnelles contre tout accès non autorisé, modification, divulgation ou destruction.
+                </p>
+            </section>
+
+            {# Conservation #}
+            <section class="mb-5">
+                <h2 class="h3 mb-3"><i class="fas fa-clock text-wine me-2"></i> Durée de conservation</h2>
+                <p>
+                    Nous conservons vos données personnelles uniquement pendant la durée nécessaire aux finalités
+                    pour lesquelles elles ont été collectées, ou conformément aux obligations légales.
+                </p>
+            </section>
+
+            {# Contact #}
+            <section class="mb-5">
+                <h2 class="h3 mb-3"><i class="fas fa-envelope text-wine me-2"></i> Nous contacter</h2>
+                <p>
+                    Pour toute question concernant cette politique de confidentialité ou vos données personnelles,
+                    vous pouvez nous contacter :
+                </p>
+                <div class="card">
+                    <div class="card-body">
+                        <p class="mb-2"><strong>Email :</strong> <a href="mailto:contact@domaine-gardiole.fr">contact@domaine-gardiole.fr</a></p>
+                        <p class="mb-2"><strong>Téléphone :</strong> +33 (0)4 67 12 34 56</p>
+                        <p class="mb-0"><strong>Adresse :</strong> Route des Vignes, 34000 Montpellier, France</p>
+                    </div>
+                </div>
+            </section>
+
+            {# Modifications #}
+            <section class="mb-5">
+                <h2 class="h3 mb-3"><i class="fas fa-edit text-wine me-2"></i> Modifications de cette politique</h2>
+                <p>
+                    Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment.
+                    Les modifications entreront en vigueur dès leur publication sur cette page.
+                    Nous vous encourageons à consulter régulièrement cette page.
+                </p>
+            </section>
+
+            {# Back button #}
+            <div class="text-center mt-5">
+                <a href="{{ path('app_home') }}" class="btn btn-wine">
+                    <i class="fas fa-arrow-left me-2"></i> Retour à l'accueil
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

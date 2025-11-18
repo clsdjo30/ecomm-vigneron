@@ -101,9 +101,10 @@
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <ul class="footer-legal">
-                        <li><a href="#">Mentions Légales</a></li>
-                        <li><a href="#">Politique de Confidentialité</a></li>
-                        <li><a href="#">CGV</a></li>
+                        <li><a href="{{ path('app_legal_notice') }}">Mentions Légales</a></li>
+                        <li><a href="{{ path('app_privacy_policy') }}">Politique de Confidentialité</a></li>
+                        <li><a href="{{ path('app_terms_of_sale') }}">CGV</a></li>
+                        <li><a href="#" onclick="cookieConsent.customize(); return false;"><i class="fas fa-cookie-bite me-1"></i>Cookies</a></li>
                     </ul>
                 </div>
             </div>

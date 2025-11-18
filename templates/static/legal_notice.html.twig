@@ -1,0 +1,98 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Mentions Légales - Domaine de la Gardiole{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <h1 class="display-4 mb-5">Mentions Légales</h1>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">Éditeur du site</h2>
+                <p>
+                    <strong>Domaine de la Gardiole</strong><br>
+                    SARL au capital de 50 000€<br>
+                    Siège social : Route des Vignes, 34000 Montpellier, France<br>
+                    RCS Montpellier : 123 456 789<br>
+                    SIRET : 123 456 789 00012<br>
+                    TVA intracommunautaire : FR12 123456789
+                </p>
+                <p>
+                    <strong>Directeur de publication :</strong> M. Jean Vigneron<br>
+                    <strong>Email :</strong> <a href="mailto:contact@domaine-gardiole.fr">contact@domaine-gardiole.fr</a><br>
+                    <strong>Téléphone :</strong> +33 (0)4 67 12 34 56
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">Hébergement</h2>
+                <p>
+                    Ce site est hébergé par :<br>
+                    <strong>OVH</strong><br>
+                    2 rue Kellermann - 59100 Roubaix - France<br>
+                    Téléphone : +33 (0)9 72 10 10 07
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">Propriété intellectuelle</h2>
+                <p>
+                    L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur
+                    et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour
+                    les documents téléchargeables et les représentations iconographiques et photographiques.
+                </p>
+                <p>
+                    La reproduction de tout ou partie de ce site sur un support électronique ou autre quel qu'il soit
+                    est formellement interdite sauf autorisation expresse du directeur de publication.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">Données personnelles</h2>
+                <p>
+                    Conformément à la loi « Informatique et Libertés » du 6 janvier 1978 modifiée et au Règlement
+                    Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification
+                    et de suppression des données vous concernant.
+                </p>
+                <p>
+                    Pour plus d'informations, consultez notre
+                    <a href="{{ path('app_privacy_policy') }}">Politique de Confidentialité</a>.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">Responsabilité</h2>
+                <p>
+                    Les informations contenues sur ce site sont aussi précises que possible et le site est
+                    périodiquement remis à jour, mais peut toutefois contenir des inexactitudes, des omissions
+                    ou des lacunes.
+                </p>
+                <p>
+                    Si vous constatez une lacune, erreur ou ce qui paraît être un dysfonctionnement,
+                    merci de bien vouloir le signaler par email à
+                    <a href="mailto:contact@domaine-gardiole.fr">contact@domaine-gardiole.fr</a>.
+                </p>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="h3 mb-3">Consommation d'alcool</h2>
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <strong>L'abus d'alcool est dangereux pour la santé. À consommer avec modération.</strong>
+                </div>
+                <p>
+                    La vente d'alcool à des mineurs de moins de 18 ans est interdite.
+                    L'acheteur doit être majeur. La preuve de majorité pourra être demandée lors de la remise de la commande.
+                </p>
+            </section>
+
+            <div class="text-center mt-5">
+                <a href="{{ path('app_home') }}" class="btn btn-wine">
+                    <i class="fas fa-arrow-left me-2"></i> Retour à l'accueil
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,147 @@
+{# Cookie Consent Banner - RGPD Compliant #}
+<div id="cookieConsent" class="cookie-consent d-none">
+    <div class="cookie-consent-content">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-3 mb-lg-0">
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-cookie-bite cookie-icon me-3"></i>
+                        <div>
+                            <h5 class="cookie-title mb-2">Respect de votre vie privée</h5>
+                            <p class="cookie-text mb-0">
+                                Nous utilisons des cookies pour améliorer votre expérience de navigation,
+                                analyser le trafic de notre site et personnaliser le contenu.
+                                Vous pouvez choisir d'accepter tous les cookies ou personnaliser vos préférences.
+                                <a href="{{ path('app_privacy_policy') }}" class="cookie-link">En savoir plus</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="cookie-buttons d-flex flex-column flex-sm-row gap-2">
+                        <button type="button" class="btn btn-outline-light btn-sm" onclick="cookieConsent.customize()">
+                            <i class="fas fa-cog me-1"></i> Personnaliser
+                        </button>
+                        <button type="button" class="btn btn-outline-light btn-sm" onclick="cookieConsent.rejectAll()">
+                            <i class="fas fa-times me-1"></i> Refuser
+                        </button>
+                        <button type="button" class="btn btn-light btn-sm" onclick="cookieConsent.acceptAll()">
+                            <i class="fas fa-check me-1"></i> Tout accepter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# Cookie Preferences Modal #}
+<div class="modal fade" id="cookiePreferencesModal" tabindex="-1" aria-labelledby="cookiePreferencesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cookiePreferencesModalLabel">
+                    <i class="fas fa-cookie-bite me-2"></i> Préférences de cookies
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-muted mb-4">
+                    Nous utilisons des cookies pour améliorer votre expérience. Vous pouvez choisir les types de cookies que vous souhaitez autoriser.
+                </p>
+
+                {# Essential Cookies #}
+                <div class="cookie-category mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div>
+                            <h6 class="mb-1">
+                                <i class="fas fa-shield-alt text-primary me-2"></i>
+                                Cookies essentiels
+                            </h6>
+                            <small class="text-muted">Ces cookies sont nécessaires au fonctionnement du site</small>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="cookieEssential" checked disabled>
+                            <label class="form-check-label text-muted" for="cookieEssential">Toujours actif</label>
+                        </div>
+                    </div>
+                    <p class="small text-muted ps-4">
+                        Ces cookies permettent les fonctionnalités de base comme la navigation sécurisée et l'accès aux zones protégées.
+                        Ils ne peuvent pas être désactivés.
+                    </p>
+                </div>
+
+                {# Analytics Cookies #}
+                <div class="cookie-category mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div>
+                            <h6 class="mb-1">
+                                <i class="fas fa-chart-line text-info me-2"></i>
+                                Cookies analytiques
+                            </h6>
+                            <small class="text-muted">Pour comprendre comment vous utilisez notre site</small>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="cookieAnalytics" data-cookie-type="analytics">
+                        </div>
+                    </div>
+                    <p class="small text-muted ps-4">
+                        Ces cookies nous aident à comprendre comment les visiteurs interagissent avec le site en collectant
+                        et en rapportant des informations de manière anonyme.
+                    </p>
+                </div>
+
+                {# Marketing Cookies #}
+                <div class="cookie-category mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div>
+                            <h6 class="mb-1">
+                                <i class="fas fa-bullhorn text-warning me-2"></i>
+                                Cookies marketing
+                            </h6>
+                            <small class="text-muted">Pour vous proposer du contenu personnalisé</small>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="cookieMarketing" data-cookie-type="marketing">
+                        </div>
+                    </div>
+                    <p class="small text-muted ps-4">
+                        Ces cookies sont utilisés pour vous proposer des publicités pertinentes et suivre l'efficacité
+                        de nos campagnes marketing.
+                    </p>
+                </div>
+
+                {# Preferences Cookies #}
+                <div class="cookie-category mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div>
+                            <h6 class="mb-1">
+                                <i class="fas fa-sliders-h text-success me-2"></i>
+                                Cookies de préférences
+                            </h6>
+                            <small class="text-muted">Pour mémoriser vos choix et préférences</small>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="cookiePreferences" data-cookie-type="preferences">
+                        </div>
+                    </div>
+                    <p class="small text-muted ps-4">
+                        Ces cookies permettent au site de se souvenir de vos choix (langue, région, etc.)
+                        pour vous offrir une expérience plus personnalisée.
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-wine" onclick="cookieConsent.savePreferences()">
+                    <i class="fas fa-save me-2"></i> Enregistrer mes préférences
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# Cookie Settings Button (Fixed) #}
+<button type="button" class="cookie-settings-btn" id="cookieSettingsBtn" onclick="cookieConsent.customize()" title="Paramètres des cookies">
+    <i class="fas fa-cookie-bite"></i>
+</button>
